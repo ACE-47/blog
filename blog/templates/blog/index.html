@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %} My Blog{% endblock title %}
+
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'blog/post.css' %}">
+<link rel="stylesheet" href="{% static 'blog/index.css' %}">
+{% endblock css_files %}
+
+
+{% block content %}
+
+
+<section id="welcome">
+    <header>
+        <img src="{% static 'blog/images/max.png' %}" alt="Haider - the Auther of this Blog">
+        <h2>HAIDER'S BLOG</h2>
+    </header>
+    <p>Hi, Iam Haider and i love to blog about the tech and the world </p>
+</section>
+
+<section id="latest-posts">
+    <h2>My Latest Thoughts</h2>
+    <ul>
+        {% for post in posts %}
+            {% include "blog/includes/post.html" %}
+        {% endfor %}
+    </ul>
+</section>
+
+<section id="about">
+    <h2>What I do</h2>
+    <p>i love programming , I love to help others and i enjoying explore new technologies in general.</p>
+    <p>My Goal is to keep growing as a developer - and if i could help you do the same, i'd be very happy</p>
+</section>
+
+
+    
+{% endblock content %}
